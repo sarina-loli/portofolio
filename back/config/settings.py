@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Third party
+    "cloudinary",
+    "cloudinary_storage",
+    "portfolio_api",
     "rest_framework",
     "rest_framework_simplejwt",
     "corsheaders",
@@ -185,3 +187,11 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = True
 
 FRONTEND_URL = config("FRONTEND_URL", default="http://localhost:5173")
+import cloudinary
+import cloudinary_storage
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
+}
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
