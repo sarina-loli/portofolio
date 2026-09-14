@@ -22,7 +22,7 @@ load_dotenv(BASE_DIR / ".env")
 
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG',cast=bool, default=False)
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [ 'localhost',
     '127.0.0.1',
