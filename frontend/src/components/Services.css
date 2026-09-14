@@ -1,0 +1,25 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+}
+
+.service-card {
+  padding: var(--space-6);
+  border-top: 2px solid var(--color-accent);
+  transition: transform var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-2);
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 0.92rem;
+}

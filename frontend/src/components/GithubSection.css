@@ -1,0 +1,47 @@
+.github-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-12);
+  padding: var(--space-12);
+  background: linear-gradient(135deg, var(--color-bg-raised), var(--color-bg-elevated));
+}
+
+.github-copy p {
+  margin-bottom: var(--space-6);
+}
+
+.github-repos {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.github-repo {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+}
+
+.github-repo a {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.github-repo a:hover {
+  color: var(--color-accent);
+}
+
+.github-repo-tech {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .github-inner {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,33 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-16);
+}
+
+.about-details {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.about-block {
+  padding: var(--space-6);
+  border-left: 2px solid var(--color-primary);
+  background: var(--color-bg-raised);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.about-block h3 {
+  margin-bottom: var(--space-2);
+  font-size: 1.05rem;
+}
+
+.about-block p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}

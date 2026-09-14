@@ -1,0 +1,63 @@
+.timeline {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  padding-left: var(--space-8);
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: calc(-1 * var(--space-8) - 6px);
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.16);
+}
+
+.timeline-content {
+  padding: var(--space-6);
+}
+
+.timeline-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.timeline-heading h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.timeline-dates {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.timeline-company {
+  color: var(--color-primary-text);
+  font-weight: 500;
+  margin: var(--space-1) 0 var(--space-3);
+}
+
+.timeline-location {
+  color: var(--color-text-faint);
+  font-weight: 400;
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}

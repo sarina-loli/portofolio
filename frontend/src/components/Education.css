@@ -1,0 +1,26 @@
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.education-card {
+  padding: var(--space-6);
+}
+
+.education-dates {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-accent);
+}
+
+.education-card h3 {
+  margin: var(--space-2) 0 var(--space-1);
+  font-size: 1.05rem;
+}
+
+.education-institution {
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+}

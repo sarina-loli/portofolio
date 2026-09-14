@@ -1,0 +1,265 @@
+.project-detail-hero {
+  padding: var(--space-16) 0 var(--space-8);
+}
+
+.project-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.project-detail-back:hover {
+  color: var(--color-accent);
+}
+
+.project-detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.project-detail-title h1 {
+  margin-bottom: var(--space-3);
+}
+
+.project-detail-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.project-detail-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+
+/* =========================================
+   MAIN PROJECT IMAGE
+   ========================================= */
+
+.project-detail-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-elevated);
+}
+
+
+/* =========================================
+   PROJECT DETAIL BODY
+   ========================================= */
+
+.project-detail-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-16);
+  padding-bottom: var(--space-24);
+}
+
+.project-detail-block {
+  margin-bottom: var(--space-8);
+}
+
+.project-detail-block h2 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-3);
+}
+
+.project-detail-features {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.project-detail-features li {
+  padding-left: var(--space-6);
+  position: relative;
+  color: var(--color-text-muted);
+}
+
+.project-detail-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.project-detail-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 96px;
+  padding: var(--space-6);
+}
+
+.project-detail-sidebar h3 {
+  font-size: 0.95rem;
+  margin-bottom: var(--space-3);
+}
+
+.project-detail-sidebar-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.project-detail-sidebar .btn {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+
+
+/* =========================================
+   PROJECT IMAGE GALLERY
+   ========================================= */
+
+.project-gallery {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.project-gallery-header {
+  margin-bottom: var(--space-6);
+}
+
+.project-gallery-header h2 {
+  margin-top: var(--space-2);
+  margin-bottom: 0;
+}
+
+
+/* Gallery grid */
+
+.project-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+
+/* Individual gallery card */
+
+.project-gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-elevated);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.project-gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+}
+
+
+/* =========================================
+   ALL ADDITIONAL PROJECT IMAGES
+   ========================================= */
+
+.project-gallery-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  background: var(--color-bg-elevated);
+}
+
+
+/* Gallery captions */
+
+.project-gallery-item figcaption {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 960px) {
+  .project-detail-body {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-sidebar {
+    position: static;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .project-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-gallery-image {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .project-gallery {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .project-gallery-grid {
+    gap: var(--space-4);
+  }
+
+  .project-gallery-item figcaption {
+    padding: var(--space-3);
+  }
+
+  .project-detail-image {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .project-gallery-image {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+}
