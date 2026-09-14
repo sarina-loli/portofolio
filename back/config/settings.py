@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [ 'localhost',
-    '127.0.0.1']
+    '127.0.0.1',]
 
 # ---------------------------------------------------------------------------
 # Applications
@@ -123,7 +123,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # CORS
 # ---------------------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = [
-"http://localhost:5173","http://127.0.0.1:5173",]
+"http://localhost:5173","http://127.0.0.1:5173",
+"https://portofolio-1-0siw.onrender.com"]
  
 CORS_ALLOW_CREDENTIALS = True
 
