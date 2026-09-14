@@ -6,7 +6,8 @@ variables (see .env.example). Nothing secret is hardcoded here.
 """
 from datetime import timedelta
 
-
+import cloudinary
+import cloudinary_storage
 from decouple import Csv, config
 import dj_database_url
 
@@ -21,7 +22,7 @@ load_dotenv(BASE_DIR / ".env")
 
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.environ.get('DEBUG',cast=bool, default=False)
 
 ALLOWED_HOSTS = [ 'localhost',
     '127.0.0.1',
@@ -111,14 +112,17 @@ USE_TZ = True
 # ---------------------------------------------------------------------------
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",},
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",},}
-
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -194,4 +198,4 @@ CLOUDINARY_STORAGE = {
     "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
     "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
 }
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
