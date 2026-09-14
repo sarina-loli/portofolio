@@ -25,7 +25,7 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [ 'localhost',
     '127.0.0.1',
-    'portofolio-9cch.onrender.com']
+    "portofolio-9cch.onrender.com"]
 
 # ---------------------------------------------------------------------------
 # Applications
