@@ -2,7 +2,7 @@ import "./Footer.css";
 
 export default function Footer({ profile }) {
   const year = new Date().getFullYear();
-  const name = profile?.full_name || "Alex Morgan";
+  const name = profile?.full_name || "Sara Getu";
 
   return (
     <footer className="footer">

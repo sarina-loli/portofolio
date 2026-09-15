@@ -1,7 +1,7 @@
 import "./Hero.css";
 
 export default function Hero({ profile }) {
-  const name = profile?.full_name || "Alex Morgan";
+  const name = profile?.full_name || "Sara Getu";
   const firstName = name.split(" ")[0];
   const intro =
     profile?.intro ||

@@ -24,43 +24,30 @@ class Command(BaseCommand):
         profile, _ = Profile.objects.update_or_create(
             id=1,
             defaults=dict(
-                full_name="Alex Morgan",
+                full_name="Sara Getu",
                 title="Full-Stack Software Developer",
-                tagline="Building secure, scalable web applications end-to-end.",
+                tagline="Building modern, responsive, and scalable web applications with React and Django.",
                 intro=(
-                    "Hi, I'm Alex Morgan. I'm a Full-Stack Software Developer specializing "
-                    "in building modern, secure, and scalable web applications using React, "
-                    "Django, and Django REST Framework."
+                    "Hi, I'm Sara Getu, a passionate Full-Stack Developer who enjoys building modern, user-friendly, and reliable web applications. I specialize in developing frontend experiences with React and powerful backend systems with Django and Django REST Framework."
                 ),
-                about=(
-                    "I'm a full-stack developer who enjoys turning ambiguous problems into "
-                    "clean, reliable software. My background spans building REST APIs with "
-                    "Django, crafting responsive interfaces in React, and shipping both to "
-                    "production. I care about code that's easy to read six months from now, "
-                    "not just code that works today."
-                ),
+                about=("I am a Full-Stack Developer passionate about turning ideas into practical and engaging web applications. I work with React to create responsive and interactive user interfaces and Django and Django REST Framework to build secure, scalable, and well-structured backend systems.I enjoy working across the entire development process, from designing user interfaces and building REST APIs to connecting databases, implementing authentication, and deploying applications.My goal is to continuously improve my skills, solve real-world problems through technology, and create software that provides a great experience for users"),
                 philosophy=(
-                    "Ship small, test often, and design for the next developer who touches "
-                    "the code \u2014 which is usually me. I favor simple, explicit solutions "
-                    "over clever ones."
+                    "I believe good software should be simple, useful, maintainable, and built with the user in mind. I focus on writing clean code, learning continuously, and solving problems through practical solutions."
                 ),
                 specialties=(
-                    "React front-ends, Django REST APIs, PostgreSQL data modeling, JWT "
-                    "authentication, and deploying full-stack applications to production."
+                    "React frontend development, Django backend development, REST API development, database integration, authentication, responsive web design, and full-stack application development."
                 ),
                 career_goals=(
-                    "I'm looking for a full-stack or backend-leaning role where I can own "
-                    "features end-to-end, mentor other developers, and help a product team "
-                    "ship reliable software at a sustainable pace."
+                    "My goal is to grow as a professional Full-Stack Developer, work on meaningful software projects, strengthen my expertise in modern web technologies, and build applications that solve real-world problems."
                 ),
                 location="Remote / Addis Ababa, ET",
-                email="alex.morgan@example.com",
-                phone="",
-                github_url="https://github.com/alexmorgan-dev",
-                linkedin_url="https://www.linkedin.com/in/alexmorgan-dev",
+                email="sarina123getu@gmail.com",
+                phone="+251993527788",
+                github_url="https://github.com/sarina-lol",
+                linkedin_url="https://www.linkedin.com/in/sara-getu",
                 twitter_url="",
                 website_url="",
-                years_experience=4,
+                years_experience=0,
             ),
         )
 
