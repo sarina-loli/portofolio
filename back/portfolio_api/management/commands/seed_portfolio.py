@@ -28,9 +28,9 @@ class Command(BaseCommand):
                 title="Full-Stack Software Developer",
                 tagline="Building modern, responsive, and scalable web applications with React and Django.",
                 intro=(
-                    "Hi, I'm Sara Getu, a passionate Full-Stack Developer who enjoys building modern, user-friendly, and reliable web applications. I specialize in developing frontend experiences with React and powerful backend systems with Django and Django REST Framework."
+                    "Hi, I'm Sara Getu, a passionate Full-Stack Web Developer who enjoys building modern, user-friendly, and reliable web applications. I specialize in developing frontend experiences with React and powerful backend systems with Django and Django REST Framework."
                 ),
-                about=("I am a Full-Stack Developer passionate about turning ideas into practical and engaging web applications. I work with React to create responsive and interactive user interfaces and Django and Django REST Framework to build secure, scalable, and well-structured backend systems.I enjoy working across the entire development process, from designing user interfaces and building REST APIs to connecting databases, implementing authentication, and deploying applications.My goal is to continuously improve my skills, solve real-world problems through technology, and create software that provides a great experience for users"),
+                about=("I am a Full-Stack  Web Developer passionate about turning ideas into practical and engaging web applications. I work with React to create responsive and interactive user interfaces and Django and Django REST Framework to build secure, scalable, and well-structured backend systems.I enjoy working across the entire development process, from designing user interfaces and building REST APIs to connecting databases, implementing authentication, and deploying applications.My goal is to continuously improve my skills, solve real-world problems through technology, and create software that provides a great experience for users"),
                 philosophy=(
                     "I believe good software should be simple, useful, maintainable, and built with the user in mind. I focus on writing clean code, learning continuously, and solving problems through practical solutions."
                 ),
