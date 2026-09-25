@@ -21,7 +21,7 @@ class ProfileAdmin(admin.ModelAdmin):
         ("Identity", {"fields": ("full_name", "title", "tagline", "avatar", "resume")}),
         ("Content", {"fields": ("intro", "about", "philosophy", "specialties", "career_goals")}),
         ("Contact", {"fields": ("email", "phone", "location")}),
-        ("Links", {"fields": ("github_url", "linkedin_url", "twitter_url", "website_url")}),
+        ("Links", {"fields": ("github_url", "linkedin_url", "twitter_url","tiktok_url", "website_url")}),
         ("Stats", {"fields": ("years_experience",)}),
     )
 
