@@ -36,7 +36,7 @@ export default function Hero({ profile }) {
               <a href={profile.linkedin_url} target="_blank" rel="noreferrer">LinkedIn ↗</a>
             )}
             {profile?.tiktok_url && (
-              <a href={profile.tiktok_url} target="_blank" rel="noreferrer">TikTok ↗</a>
+              <a href={profile.tiktok_url} target="_blank" rel="noreferrer"><span className="tiktok-text">TikTok ↗</span></a>
             )}
           </div>
         </div>
