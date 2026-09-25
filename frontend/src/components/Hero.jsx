@@ -40,7 +40,7 @@ export default function Hero({ profile }) {
             )}
           </div>
         </div>
-        <div>
+        <div className="hero-loading-message">
           {profile?.hello || "Please wait while everything loads... ⏳"}
         </div>
 
