@@ -18,7 +18,7 @@ from .models import (
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("full_name", "title", "email", "updated_at")
     fieldsets = (
-        ("Identity", {"fields": ("full_name", "title", "tagline", "avatar", "resume")}),
+        ("Identity", {"fields": ("full_name", "title", "tagline", "avatar", "resume","hello")}),
         ("Content", {"fields": ("intro", "about", "philosophy", "specialties", "career_goals")}),
         ("Contact", {"fields": ("email", "phone", "location")}),
         ("Links", {"fields": ("github_url", "linkedin_url", "twitter_url","tiktok_url", "website_url")}),

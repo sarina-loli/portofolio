@@ -26,6 +26,7 @@ class Profile(models.Model):
     twitter_url = models.URLField(blank=True)
     tiktok_url = models.URLField(blank=True)
     website_url = models.URLField(blank=True)
+    hello = models.TextField(blank=True)
     years_experience = models.PositiveSmallIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -40,6 +40,9 @@ export default function Hero({ profile }) {
             )}
           </div>
         </div>
+        <div>
+          {profile?.hello || "Please wait while everything loads... ⏳"}
+        </div>
 
         <div className="hero-visual" aria-hidden="true">
           <div className="code-window card">
