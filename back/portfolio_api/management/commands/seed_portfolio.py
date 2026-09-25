@@ -46,6 +46,7 @@ class Command(BaseCommand):
                 github_url="https://github.com/sarina-lol",
                 linkedin_url="https://www.linkedin.com/in/sara-getu",
                 twitter_url="",
+                tiktok_url="https://www.tiktok.com/@velora_dev1?_r=1&_t=ZS-9A1uO34EcKq",
                 website_url="",
                 years_experience=0,
             ),
