@@ -24,6 +24,7 @@ class Profile(models.Model):
     github_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
+    tiktok_url = models.URLField(blank=True)
     website_url = models.URLField(blank=True)
     years_experience = models.PositiveSmallIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)

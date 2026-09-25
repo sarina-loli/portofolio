@@ -34,6 +34,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "github_url",
             "linkedin_url",
             "twitter_url",
+            "tiktok_url",
             "website_url",
             "years_experience",
         ]
