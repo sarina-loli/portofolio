@@ -21,11 +21,16 @@ export default function Hero({ profile }) {
           <div className="hero-actions">
             <a href="/#projects" className="btn btn-primary">View my projects</a>
             <a href="/#contact" className="btn btn-outline">Contact me</a>
-            {profile?.resume && (
-              <a href={profile.resume} className="btn btn-outline" download>
-                Download resume
-              </a>
-            )}
+           {profile?.resume && (
+  <a
+    href={new URL(profile.resume, import.meta.env.VITE_API_BASE_URL.replace("/api", "/")).href}
+    className="btn btn-outline"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Download Resume
+  </a>
+)}
           </div>
 
           <div className="hero-social">
