@@ -1,6 +1,6 @@
 .about-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: var(--space-16);
 }
 
@@ -27,7 +27,18 @@
 
 @media (max-width: 900px) {
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-8);
+  }
+
+  /* the head's bottom margin is only needed when it sits beside the details */
+  .about-grid > .section-head {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-block {
+    padding: var(--space-4);
   }
 }

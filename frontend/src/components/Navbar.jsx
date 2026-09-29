@@ -52,7 +52,7 @@ export default function Navbar({ profile }) {
             </span>
           )}
 
-          <span>
+          <span className="navbar-brand-name">
             {profile?.full_name || "Sara Getu"}
           </span>
         </Link>

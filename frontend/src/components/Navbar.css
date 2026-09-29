@@ -17,17 +17,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  gap: var(--space-4);
+  height: var(--navbar-h);
 }
 
 .navbar-brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  min-width: 0; /* lets a long name wrap instead of pushing the menu button off-screen */
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.05rem;
   color: var(--color-text);
+}
+
+.navbar-brand-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
 }
 
 .navbar-brand-mark {
@@ -38,7 +46,7 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: clamp(1rem, 3vw, var(--space-8));
 }
 
 .navbar-links a {
@@ -55,18 +63,20 @@
   display: none;
   flex-direction: column;
   justify-content: center;
+  flex-shrink: 0;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
+  cursor: pointer;
 }
 
 .navbar-toggle span {
   display: block;
   height: 2px;
-  margin: 0 8px;
+  margin: 0 10px;
   background: var(--color-text);
 }
 
@@ -77,7 +87,7 @@
 
   .navbar-links {
     position: absolute;
-    top: 72px;
+    top: var(--navbar-h);
     left: 0;
     right: 0;
     flex-direction: column;
@@ -87,24 +97,43 @@
     border-bottom: 1px solid var(--color-border);
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-base);
+    /* Closed menu links must not be reachable by keyboard / screen readers */
+    visibility: hidden;
+    transition: max-height var(--transition-base), visibility 0s linear 220ms;
   }
 
   .navbar-links-open {
-    max-height: 420px;
+    /* Never taller than the visible screen (e.g. landscape phones); scrolls if needed */
+    max-height: calc(100vh - var(--navbar-h));
+    max-height: calc(100dvh - var(--navbar-h));
+    overflow-y: auto;
+    visibility: visible;
+    transition: max-height var(--transition-base), visibility 0s;
   }
 
   .navbar-links a {
     width: 100%;
-    padding: var(--space-4) var(--space-6);
+    padding: var(--space-4) var(--gutter);
     border-bottom: 1px solid var(--color-border);
   }
 }
+
 .navbar-avatar {
+  flex-shrink: 0;
   width: 42px;
   height: 42px;
   object-fit: cover;
   border-radius: 50%;
   margin-right: 10px;
   vertical-align: middle;
+}
+
+@media (max-width: 360px) {
+  .navbar-avatar {
+    margin-right: 0;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
 }

@@ -40,27 +40,35 @@ export default function Hero({ profile }) {
             )}
           </div>
         </div>
-        <div className="hero-loading-message">
-          {profile?.hello || "Please wait while everything loads... ⏳"}
-        </div>
 
-        <div className="hero-visual" aria-hidden="true">
-          <div className="code-window card">
-            <div className="code-window-bar">
-              <span className="dot dot-red" />
-              <span className="dot dot-amber" />
-              <span className="dot dot-green" />
-              <span className="code-window-title">developer.py</span>
+        {/* Right column: greeting + decorative code window (stacked, one grid cell) */}
+        <div className="hero-side">
+          <div className="hero-loading-message">
+            {profile?.hello || "Please wait while everything loads... ⏳"}
+          </div>
+
+          <div className="hero-visual" aria-hidden="true">
+            <div className="code-window card">
+              <div className="code-window-bar">
+                <span className="dot dot-red" />
+                <span className="dot dot-amber" />
+                <span className="dot dot-green" />
+                <span className="code-window-title">developer.py</span>
+              </div>
+              {/*
+                Each line is its own block so indentation is preserved and long lines
+                wrap (with a hanging indent) instead of scrolling out of the window.
+              */}
+              <pre className="code-window-body">
+                <span className="code-line" style={{ "--indent": 0 }}><span className="tok-kw">class</span> <span className="tok-class">Developer</span>:</span>
+                <span className="code-line" style={{ "--indent": 1 }}><span className="tok-kw">def</span> <span className="tok-fn">__init__</span>(<span className="tok-self">self</span>):</span>
+                <span className="code-line" style={{ "--indent": 2 }}><span className="tok-self">self</span>.stack = [<span className="tok-str">"React"</span>, <span className="tok-str">"Django"</span>, <span className="tok-str">"PostgreSQL"</span>]</span>
+                <span className="code-line" style={{ "--indent": 2 }}><span className="tok-self">self</span>.focus = <span className="tok-str">"secure, scalable APIs"</span></span>
+                <span className="code-line code-line-blank" />
+                <span className="code-line" style={{ "--indent": 1 }}><span className="tok-kw">def</span> <span className="tok-fn">ship</span>(<span className="tok-self">self</span>, idea):</span>
+                <span className="code-line" style={{ "--indent": 2 }}><span className="tok-kw">return</span> <span className="tok-fn">build</span>(idea, tested=<span className="tok-kw">True</span>)</span>
+              </pre>
             </div>
-            <pre className="code-window-body">
-<span className="tok-kw">class</span> <span className="tok-class">Developer</span>:
-    <span className="tok-kw">def</span> <span className="tok-fn">__init__</span>(<span className="tok-self">self</span>):
-        <span className="tok-self">self</span>.stack = [<span className="tok-str">"React"</span>, <span className="tok-str">"Django"</span>, <span className="tok-str">"PostgreSQL"</span>]
-        <span className="tok-self">self</span>.focus = <span className="tok-str">"secure, scalable APIs"</span>
-
-    <span className="tok-kw">def</span> <span className="tok-fn">ship</span>(<span className="tok-self">self</span>, idea):
-        <span className="tok-kw">return</span> <span className="tok-fn">build</span>(idea, tested=<span className="tok-kw">True</span>)
-            </pre>
           </div>
         </div>
       </div>

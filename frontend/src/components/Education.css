@@ -1,6 +1,6 @@
 .education-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: var(--space-6);
 }
 
@@ -23,4 +23,10 @@
   color: var(--color-text);
   font-weight: 500;
   margin-bottom: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .education-card {
+    padding: var(--space-4);
+  }
 }

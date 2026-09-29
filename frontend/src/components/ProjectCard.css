@@ -1,4 +1,5 @@
 .project-card {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -30,6 +31,7 @@
 }
 
 .project-card-body {
+  min-width: 0;
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
@@ -66,4 +68,10 @@
 
 .project-card-link:hover {
   color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .project-card-body {
+    padding: var(--space-4);
+  }
 }

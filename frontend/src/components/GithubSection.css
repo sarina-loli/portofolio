@@ -1,8 +1,11 @@
-.github-inner {
+.container.github-inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: var(--space-12);
   padding: var(--space-12);
+  /* `.container.github-inner` (not just `.github-inner`) so this padding/width wins over `.container`,
+     whatever order the stylesheets end up in. Keeps a page gutter on narrow screens; identical width on desktop. */
+  width: min(100% - 2 * var(--gutter), var(--content-max));
   background: linear-gradient(135deg, var(--color-bg-raised), var(--color-bg-elevated));
 }
 
@@ -11,6 +14,7 @@
 }
 
 .github-repos {
+  min-width: 0;
   display: grid;
   gap: var(--space-3);
   align-content: start;
@@ -27,6 +31,7 @@
   font-family: var(--font-mono);
   font-size: 0.92rem;
   color: var(--color-text);
+  overflow-wrap: anywhere;
 }
 
 .github-repo a:hover {
@@ -41,7 +46,19 @@
 }
 
 @media (max-width: 860px) {
-  .github-inner {
-    grid-template-columns: 1fr;
+  .container.github-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    padding: var(--space-8);
+  }
+}
+
+@media (max-width: 480px) {
+  .container.github-inner {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .github-copy p {
+    margin-bottom: var(--space-4);
   }
 }
