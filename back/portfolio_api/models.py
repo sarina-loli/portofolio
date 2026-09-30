@@ -1,8 +1,8 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.text import slugify
-from cloudinary.models import CloudinaryField
 from cloudinary_storage.storage import VideoMediaCloudinaryStorage
+from django.core.validators import FileExtensionValidator
 
 class Profile(models.Model):
     """Singleton-ish model holding the developer's headline info.
@@ -21,11 +21,7 @@ class Profile(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(upload_to="profile/", blank=True, null=True)
-    resume = models.FileField(
-    upload_to="resume/",
-    blank=True,
-    null=True,
-)
+    resume = models.FileField(upload_to="resume/", blank=True, null=True)
     github_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
@@ -87,20 +83,13 @@ class Project(models.Model):
         help_text="One feature per line; rendered as a bullet list.",
     )
     image = models.ImageField(upload_to="projects/", blank=True, null=True)
-from django.db import models
-from cloudinary_storage.storage import VideoMediaCloudinaryStorage
-from cloudinary_storage.validators import validate_video
-
-
-class Project(models.Model):
-    # your existing fields...
-
     video = models.FileField(
         upload_to="projects/videos/",
         storage=VideoMediaCloudinaryStorage(),
-        validators=[validate_video],
+        validators=[FileExtensionValidator(allowed_extensions=["mp4", "webm", "mov", "ogg"])],
         blank=True,
         null=True,
+        help_text="Optional product video (mp4, webm, mov or ogg). Shown before the image on the project card.",
     )
     github_url = models.URLField(blank=True)
     live_url = models.URLField(blank=True)
