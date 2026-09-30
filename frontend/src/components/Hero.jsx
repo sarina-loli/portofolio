@@ -23,7 +23,7 @@ export default function Hero({ profile }) {
             <a href="/#contact" className="btn btn-outline">Contact me</a>
            {profile?.resume && (
   <a
-    href={new URL(profile.resume, import.meta.env.VITE_API_BASE_URL.replace("/api", "/")).href}
+    href={profile.resume.replace("/raw/upload/", "/raw/upload/fl_attachment/")}
     className="btn btn-outline"
     target="_blank"
     rel="noopener noreferrer"

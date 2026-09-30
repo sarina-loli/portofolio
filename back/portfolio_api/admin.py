@@ -57,7 +57,7 @@ class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     inlines = [ProjectTechnologyInline, ProjectImageInline]
     fieldsets = (
-        (None, {"fields": ("title", "slug", "summary", "image", "featured", "order")}),
+        (None, {"fields": ("title", "slug", "summary", "image","video", "featured", "order")}),
         ("Detail page content", {
             "fields": (
                 "description",

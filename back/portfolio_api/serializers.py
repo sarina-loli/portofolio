@@ -14,6 +14,7 @@ from .models import (
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    resume = serializers.SerializerMethodField()
     class Meta:
         model = Profile
         fields = [
@@ -39,6 +40,10 @@ class ProfileSerializer(serializers.ModelSerializer):
             "hello",
             "years_experience",
         ]
+    def get_resume(self, obj):
+        if obj.resume:
+            return obj.resume.build_url(resource_type="raw", format="pdf", secure=True)
+        return None
 
 
 class SkillSerializer(serializers.ModelSerializer):
@@ -74,6 +79,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
             "slug",
             "summary",
             "image",
+            "video",
             "github_url",
             "live_url",
             "case_study_url",
@@ -109,6 +115,7 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
             "lessons_learned",
             "features",
             "image",
+            "video",
             "gallery",
             "github_url",
             "live_url",

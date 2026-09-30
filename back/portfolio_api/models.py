@@ -1,7 +1,7 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.text import slugify
-
+from cloudinary.models import CloudinaryField
 
 class Profile(models.Model):
     """Singleton-ish model holding the developer's headline info.
@@ -20,7 +20,11 @@ class Profile(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(upload_to="profile/", blank=True, null=True)
-    resume = models.FileField(upload_to="resume/", blank=True, null=True)
+    resume = models.FileField(
+    upload_to="resume/",
+    blank=True,
+    null=True,
+)
     github_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
@@ -82,6 +86,11 @@ class Project(models.Model):
         help_text="One feature per line; rendered as a bullet list.",
     )
     image = models.ImageField(upload_to="projects/", blank=True, null=True)
+    video = models.FileField(
+    upload_to="products/videos/",
+    blank=True,
+    null=True,
+)
     github_url = models.URLField(blank=True)
     live_url = models.URLField(blank=True)
     case_study_url = models.URLField(blank=True)
