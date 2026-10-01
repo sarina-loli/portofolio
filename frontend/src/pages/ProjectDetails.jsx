@@ -86,7 +86,17 @@ export default function ProjectDetails() {
 
           </div>
         )}
-
+        {project.video && (
+        <video
+          src={project.video}
+          className="project-card-video"
+          poster={project.image || undefined}
+          controls
+          playsInline
+          preload="metadata"
+          aria-label={`${project.title} video`}
+        />
+      )}
         {/* Main Project Image */}
         {project.image && (
           <img

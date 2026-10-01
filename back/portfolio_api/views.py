@@ -1,7 +1,8 @@
 from rest_framework import mixins, viewsets
 from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
-
+from django.core.mail import EmailMessage
+from django.conf import settings
 from .filters import ProjectFilter, SkillFilter
 from .models import ContactMessage, Education, Experience, Profile, Project, Service, Skill
 from .permissions import IsAdminOrReadOnly
@@ -102,3 +103,4 @@ class ContactMessageViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
         # Anyone may create (submit) a message; nothing else is exposed
         # because only CreateModelMixin is wired up on this viewset.
         return []
+    
