@@ -4,17 +4,6 @@ import "./ProjectCard.css";
 export default function ProjectCard({ project }) {
   return (
     <article className="project-card card">
-      {project.video && (
-        <video
-          src={project.video}
-          className="project-card-video"
-          poster={project.image || undefined}
-          controls
-          playsInline
-          preload="metadata"
-          aria-label={`${project.title} video`}
-        />
-      )}
       {project.image ? (
         <img src={project.image} alt={`${project.title} screenshot`} className="project-card-image" />
       ) : (
