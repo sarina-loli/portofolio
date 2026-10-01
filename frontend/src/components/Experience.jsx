@@ -9,7 +9,9 @@ function formatDate(value) {
   return date.toLocaleDateString(undefined, { year: "numeric", month: "short" });
 }
 
-export default function Experience({ experience, loading, error, onRetry }) {
+export default function Experience({ experience, loading, error, onRetry
+
+ }) {
   return (
     <section id="experience" className="section experience">
       <div className="container">
@@ -17,7 +19,6 @@ export default function Experience({ experience, loading, error, onRetry }) {
           <p className="kicker">Experience</p>
           <h2>Where I&rsquo;ve worked</h2>
         </div>
-
         {loading && <Loading label="Loading experience" />}
         {error && <ErrorState message="Couldn't load experience from the API." onRetry={onRetry} />}
         {!loading && !error && experience?.length === 0 && (

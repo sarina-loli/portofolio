@@ -21,16 +21,12 @@ export default function Hero({ profile }) {
           <div className="hero-actions">
             <a href="/#projects" className="btn btn-primary">View my projects</a>
             <a href="/#contact" className="btn btn-outline">Contact me</a>
-           {profile?.resume && (
-  <a
-    href={profile.resume.replace("/raw/upload/", "/raw/upload/fl_attachment/")}
-    className="btn btn-outline"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Download Resume
-  </a>
-)}
+          {profile?.resume && (
+              <a href={profile.resume} className="btn btn-outline" download>
+                Download resume
+              </a>
+            )}
+
           </div>
 
           <div className="hero-social">

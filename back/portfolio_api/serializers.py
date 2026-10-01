@@ -14,7 +14,7 @@ from .models import (
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    resume = serializers.SerializerMethodField()
+    
     class Meta:
         model = Profile
         fields = [
@@ -40,10 +40,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "hello",
             "years_experience",
         ]
-    def get_resume(self, obj):
-        if obj.resume:
-            return obj.resume.build_url(resource_type="raw", format="pdf", secure=True)
-        return None
+  
 
 
 class SkillSerializer(serializers.ModelSerializer):
