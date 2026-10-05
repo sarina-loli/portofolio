@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
+import uuid
 class Profile(models.Model):
     """Singleton-ish model holding the developer's headline info.
     Managed entirely from Django admin; the frontend fetches /api/profile/.
@@ -239,18 +240,39 @@ class ContactMessage(models.Model):
     def __str__(self):
         return f"{self.subject} — {self.name}"
 class Visitor(models.Model):
+    visitor_id = models.UUIDField(
+        default=uuid.uuid4,
+        unique=True,
+        editable=False
+    )
+
     user = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
         null=True,
         blank=True
     )
+
     ip_address = models.GenericIPAddressField(null=True, blank=True)
-    device = models.CharField(max_length=50, blank=True)
+    device = models.CharField(max_length=100, blank=True)
     browser = models.CharField(max_length=100, blank=True)
     operating_system = models.CharField(max_length=100, blank=True)
-    page = models.CharField(max_length=255)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Visitor {self.id}"
+
+class VisitorPageView(models.Model):
+    visitor = models.ForeignKey(
+        Visitor,
+        on_delete=models.CASCADE,
+        related_name="page_views"
+    )
+
+    page = models.CharField(max_length=500)
     visited_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.ip_address} - {self.page}"
+        return f"Visitor {self.visitor.id} - {self.page}"
+    
