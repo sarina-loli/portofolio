@@ -11,7 +11,9 @@ from .models import (
     Service,
     Skill,
     Technology,
+    Visitor,
 )
+
 
 
 @admin.register(Profile)
@@ -109,3 +111,32 @@ class ContactMessageAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # Messages only come in through the public contact form.
         return False
+
+
+
+@admin.register(Visitor)
+class VisitorAdmin(admin.ModelAdmin):
+    list_display = (
+        'ip_address',
+        'device',
+        'browser',
+        'operating_system',
+        'page',
+        'user',
+        'visited_at',
+    )
+
+    list_filter = (
+        'device',
+        'browser',
+        'operating_system',
+        'visited_at',
+    )
+
+    search_fields = (
+        'ip_address',
+        'page',
+        'user__username',
+    )
+
+    ordering = ('-visited_at',)
