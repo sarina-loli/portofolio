@@ -3,8 +3,8 @@ from django.db import models
 from django.utils.text import slugify
 from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 from django.core.validators import FileExtensionValidator
-from django.contrib.auth.models import User
 import uuid
+from django.contrib.auth.models import User
 class Profile(models.Model):
     """Singleton-ish model holding the developer's headline info.
     Managed entirely from Django admin; the frontend fetches /api/profile/.
@@ -17,18 +17,18 @@ class Profile(models.Model):
     about = models.TextField(help_text="Longer 'About Me' narrative.")
     philosophy = models.TextField(blank=True, help_text="Development philosophy.")
     specialties = models.TextField(blank=True, help_text="What I specialize in.")
-    career_goals = models.TextField(blank=True)
-    location = models.CharField(max_length=120, blank=True)
-    email = models.EmailField()
-    phone = models.CharField(max_length=30, blank=True)
+    career_goals = models.TextField(blank=True,default="")
+    location = models.CharField(max_length=120, blank=True,default="")
+    email = models.EmailField(blank=True,default="")
+    phone = models.CharField(max_length=30, blank=True,default="")
     avatar = models.ImageField(upload_to="profile/", blank=True, null=True)
     resume = models.FileField(upload_to="resume/", blank=True, null=True)
-    github_url = models.URLField(blank=True)
-    linkedin_url = models.URLField(blank=True)
-    twitter_url = models.URLField(blank=True)
-    tiktok_url = models.URLField(blank=True)
-    website_url = models.URLField(blank=True)
-    hello = models.TextField(blank=True)
+    github_url = models.URLField(blank=True,default="")
+    linkedin_url = models.URLField(blank=True,default="")
+    twitter_url = models.URLField(blank=True,default="")
+    tiktok_url = models.URLField(blank=True,default="")
+    website_url = models.URLField(blank=True,default="")
+    hello = models.TextField(blank=True,default="")
     years_experience = models.PositiveSmallIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -161,8 +161,8 @@ class ProjectImage(models.Model):
 class Experience(models.Model):
     position = models.CharField(max_length=120)
     company = models.CharField(max_length=120)
-    company_url = models.URLField(blank=True)
-    location = models.CharField(max_length=120, blank=True)
+    company_url = models.URLField(blank=True,default="")
+    location = models.CharField(max_length=120, blank=True,default="")
     description = models.TextField()
     technologies = models.CharField(
         max_length=300,
@@ -188,7 +188,7 @@ class Experience(models.Model):
 class Education(models.Model):
     institution = models.CharField(max_length=150)
     degree = models.CharField(max_length=150)
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=True, default="",help_text="Optional description of the program or coursework.")
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     order = models.PositiveSmallIntegerField(default=0)
@@ -239,6 +239,7 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.subject} — {self.name}"
+
 class Visitor(models.Model):
     visitor_id = models.UUIDField(
         default=uuid.uuid4,
@@ -267,7 +268,7 @@ class VisitorPageView(models.Model):
     visitor = models.ForeignKey(
         Visitor,
         on_delete=models.CASCADE,
-        related_name="page_views"
+        related_name="page_views", 
     )
 
     page = models.CharField(max_length=500)
@@ -275,4 +276,5 @@ class VisitorPageView(models.Model):
 
     def __str__(self):
         return f"Visitor {self.visitor.id} - {self.page}"
+
     
